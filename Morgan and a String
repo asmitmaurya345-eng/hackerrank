@@ -1,0 +1,30 @@
+def morganAndString(a, b):
+    l=[]
+    i=0
+    j=0
+    a+="{"
+    b+="{"
+    while i<len(a)-1 or j<len(b)-1:
+        if a[i:]<b[j:]:
+            l.append(a[i])
+            i+=1
+        else:
+            l.append(b[j])
+            j+=1
+    return "".join(l).replace("{","")
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        a = input()
+
+        b = input()
+
+        result = morganAndString(a, b)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
